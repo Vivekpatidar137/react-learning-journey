@@ -274,7 +274,7 @@ Smaller: The file size is smaller because it excludes development-specific code 
 
 
 
-Question8 =   What is difference between react.development.js and react.production.js files via CDN?
+Question8 =  What is async and defer?
 
 Answer =
 
