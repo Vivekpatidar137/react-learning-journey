@@ -271,3 +271,38 @@ File Size:
 
 Smaller: The file size is smaller because it excludes development-specific code and is minified.
 
+
+
+
+Question8 =   What is difference between react.development.js and react.production.js files via CDN?
+
+Answer =
+
+When including JavaScript files in your HTML, the async and defer attributes are used to control the loading and execution of these scripts. These attributes help improve the performance and efficiency of web page loading by modifying the default blocking behavior of script tags.
+
+Default Script Loading Behavior
+By default, when the browser encounters a <script> tag, it stops parsing the HTML, fetches the script, and executes it before continuing to parse the rest of the HTML. This can cause delays in rendering the web page, especially if the script is large or the network is slow.
+
+async Attribute
+The async attribute allows the script to be downloaded in parallel with parsing the HTML, but the script will be executed as soon as it is available, potentially before the HTML parsing is complete.
+
+Key Points:
+
+Download in Parallel: The script is downloaded asynchronously while the HTML is still being parsed.
+Immediate Execution: Once the script is downloaded, it is executed immediately, which can interrupt the parsing of the HTML.
+Order Not Guaranteed: If there are multiple async scripts, they might not execute in the order they appear in the HTML, since each script executes as soon as it finishes downloading.
+
+
+defer Attribute
+The defer attribute also allows the script to be downloaded in parallel with parsing the HTML, but the script will only be executed after the HTML parsing is complete.
+
+Key Points:
+
+Download in Parallel: The script is downloaded asynchronously while the HTML is still being parsed.
+Deferred Execution: The script is executed after the entire HTML document has been parsed.
+Order Guaranteed: If there are multiple defer scripts, they are executed in the order they appear in the HTML.
+
+
+Use Cases
+async: Use this for scripts that are independent and do not rely on the DOM or other scripts. Examples include analytics scripts or ads.
+defer: Use this for scripts that need to interact with the DOM after it has fully loaded or depend on other scripts. Examples include main application scripts that initialize the app after the DOM is ready.
