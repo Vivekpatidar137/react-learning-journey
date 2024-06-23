@@ -1,0 +1,12 @@
+# Node modules
+node_modules/
+
+# Parcel cache
+.parcel-cache/
+
+# Dist folder (build artifacts)
+dist/
+
+# Miscellaneous
+.DS_Store
+*.log
