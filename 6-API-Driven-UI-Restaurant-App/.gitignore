@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# Parcel cache
+.cache
+dist
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variables file
+.env
+
+# MacOS files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+Desktop.ini
+
+# Build output
+build/
+dist/
+
+# IDE-specific files
+.idea/
+.vscode/
