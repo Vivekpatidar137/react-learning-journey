@@ -99,15 +99,16 @@ In software development, the choice between monolithic and microservices archite
 
 **Syntax:**
 
-JavaScript
+### Optional Chaining Example
 
-`const data = {
-user: {
-name: 'Alice',
-profile: {
-city: 'New York',
-},
-},
+```javascript
+const data = {
+  user: {
+    name: 'Alice',
+    profile: {
+      city: 'New York',
+    },
+  },
 };
 
 // Traditional approach (prone to errors if profile is null)
@@ -118,7 +119,8 @@ console.log(city); // Output: New York
 
 // If profile is null
 data.user.profile = null;
-console.log(city); // Output: undefined (no error)`
+console.log(city); // Output: undefined (no error)
+
 
 **When to Use Optional Chaining:**
 
@@ -126,7 +128,6 @@ console.log(city); // Output: undefined (no error)`
 - **Handling Optional Data:** When dealing with data that might be incomplete or structured differently, optional chaining helps you access available properties without errors.
 
 **Question6 = What is Shimmer UI?**
-
 **answer =**
 
 A Shimmer UI, also known as a skeleton UI or placeholder UI, is a temporary user interface element used during the loading phase of an application. It provides a visual indication of ongoing data fetching or processing, enhancing the user experience by:
@@ -209,43 +210,47 @@ Here's a breakdown of conditional rendering with a code example:
 - **Code Reusability:** You can write reusable components that render different content based on conditions, reducing code duplication.
 - **Improved Readability:** Conditional rendering helps keep your JSX clean and organized, making it easier to understand how different UI elements are displayed based on conditions.
 
-**Code Example:**
+### Code Example: React Login Component
 
-`import React, { useState } from 'react';
+**javascript**
+
+import React, { useState } from 'react';
 
 function Login() {
-const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-const handleLogin = () => {
-setIsLoggedIn(true);
-};
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
 
-return (
-<div>
-{isLoggedIn ? (
-<div>
-<h2>Welcome back!</h2>
-<p>You are now logged in.</p>
-<button onClick={() => setIsLoggedIn(false)}>Logout</button>
-</div>
-) : (
-<div>
-<h2>Login</h2>
-<form onSubmit={handleLogin}>
-<label htmlFor="username">Username:</label>
-<input type="text" id="username" />
-<br />
-<label htmlFor="password">Password:</label>
-<input type="password" id="password" />
-<br />
-<button type="submit">Login</button>
-</form></div>
-)}
-</div>
-);
+  return (
+    <div>
+      {isLoggedIn ? (
+        <div>
+          <h2>Welcome back!</h2>
+          <p>You are now logged in.</p>
+          <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+        </div>
+      ) : (
+        <div>
+          <h2>Login</h2>
+          <form onSubmit={handleLogin}>
+            <label htmlFor="username">Username:</label>
+            <input type="text" id="username" />
+            <br />
+            <label htmlFor="password">Password:</label>
+            <input type="password" id="password" />
+            <br />
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default Login;`
+export default Login;
+
 
 **Explanation:**
 
@@ -282,7 +287,7 @@ Without CORS, web browsers enforce the **Same-Origin Policy**, which restricts s
 
 ### Example:
 
-`fetch('https://api.example.com/data')
+fetch('https://api.example.com/data')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -294,7 +299,7 @@ Without CORS, web browsers enforce the **Same-Origin Policy**, which restricts s
   })
   .catch(error => {
     console.error('There was a problem with the fetch operation:', error);
-  });`
+  });
 
 In this example, if `https://api.example.com` doesn't have the correct CORS headers configured, the fetch request will fail.
 
@@ -320,7 +325,7 @@ In this example, if `https://api.example.com` doesn't have the correct CORS head
 
 **Example:**
 
-`async function fetchData() {
+async function fetchData() {
 const response = await fetch('https://api.example.com/data');
 const data = await response.json();
 return data;
@@ -328,7 +333,7 @@ return data;
 
 fetchData().then(data => {
 console.log(data);
-});`
+});
 
 **Explanation:**
 
