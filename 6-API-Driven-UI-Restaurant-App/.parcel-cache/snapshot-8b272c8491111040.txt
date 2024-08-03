@@ -91,13 +91,13 @@
 101E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\@babel\highlight\LICENSE133623900105210545 0
 109E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\svgo\plugins\sortDefsChildren.js133623900156826010 0
 121E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\@swc\helpers\_\_new_arrow_check\package.json133623900180701858 0
-73E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\README.md133668802567971370 0
+73E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\README.md133668805712757144 0
 67E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\src133666264206321477 1
 113E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\@parcel\optimizer-image\package.json133623900163816943 0
 133E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\@parcel\utils\test\input\sourcemap\referenced-min.js.map133623900208198508 0
 90E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\@trysound\sax133666263939821797 1
 134E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\csso\node_modules\css-tree\cjs\syntax\node\WhiteSpace.cjs133623900202132597 0
-73E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\style.css133668805275162835 0
+73E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\style.css133668805405714186 0
 92E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\process\test.js133624720455503333 0
 109E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\htmlnano\docs\docs\030-config.md133623900149109184 0
 123E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\caniuse-lite\data\features\css-not-sel-list.js133623900169655295 0
@@ -150,7 +150,7 @@
 104E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\@swc\helpers\_\_export_star133666263933729323 1
 126E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\@parcel\optimizer-svgo\node_modules\svgo\bin\svgo133623900182386309 0
 94E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\parcel\lib\cli.js133623900169525636 0
-87E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\src\components\Body.jsx133665684312849720 0
+87E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\src\components\Body.jsx133670547256065201 0
 108E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\caniuse-lite\data\regions\SE.js133623900223869584 0
 128E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\@swc\helpers\cjs\_class_private_field_loose_key.cjs133623900135112177 0
 117E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\css-select\node_modules\entities\lib\esm133666264049952017 1
@@ -7022,5 +7022,5 @@
 104E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\.bin\update-browserslist-db133623900274684659 0
 108E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\node_modules\.bin\update-browserslist-db.cmd133623900274698618 0
 90E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\dist\Designer.539c047f.png133668804461343867 0
-79E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\dist\index.html133668804463529020 0
 91E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\dist\index.c41b5a0e.css.map133668804463685230 0
+79E:\GitHub\react-learning-journey\6-API-Driven-UI-Restaurant-App\dist\index.html133668804463529020 0

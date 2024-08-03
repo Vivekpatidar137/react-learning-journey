@@ -1,3 +1,4 @@
+
 import RestaurantCard from "./RestaurantCard";
 import { restaurantList } from "./config";
 import { useState, useEffect } from "react";

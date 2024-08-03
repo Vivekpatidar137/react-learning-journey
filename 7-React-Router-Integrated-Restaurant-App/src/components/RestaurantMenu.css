@@ -1,0 +1,36 @@
+/* RestaurantMenu.css */
+
+.restaurant-menu {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .restaurant-menu h2 {
+    font-size: 28px;
+    color: #343a40;
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-menu img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .restaurant-menu h3 {
+    font-size: 20px;
+    color: #495057;
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-menu p {
+    font-size: 16px;
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
