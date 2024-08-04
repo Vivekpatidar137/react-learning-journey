@@ -1,4 +1,3 @@
-
 import RestaurantCard from "./RestaurantCard";
 import { restaurantList } from "./config";
 import { useState, useEffect } from "react";
@@ -29,11 +28,17 @@ const Body = () => {
 
     const json = await data.json();
 
-    setRestaurants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-    setOriginalRestaurants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-  };
- 
-  return (!originalRestaurants.length)? <Shimmer /> : (
+    setRestaurants(
+      json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setOriginalRestaurants(
+      json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  }
+
+  return !originalRestaurants.length ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="search-container">
         <input
