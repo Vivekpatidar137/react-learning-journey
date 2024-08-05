@@ -1,14 +1,19 @@
-import { useRouteError } from "react-router-dom";
+import { Link, useRouteError } from "react-router-dom";
+import "./Error.css";
 
 const Error = () => {
   const err = useRouteError();
   const { status, statusText } = err;
+
   return (
-    <>
-      <h1>OOPS!!</h1>
-      <h2>something went wrong please try again</h2>
-      <h3>{status + " : " + statusText}</h3>
-    </>
+    <div className="error-container">
+      <div className="error-code">{status || "404"}</div>
+      <div className="error-message">
+        <h1>Oops! Something went wrong</h1>
+        <p>{statusText || "The page you're looking for doesn't exist."}</p>
+        <Link to="/" className="error-button">Go Home</Link>
+      </div>
+    </div>
   );
 };
 
