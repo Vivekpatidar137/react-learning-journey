@@ -1,6 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
+import {ShimmerRestaurantCard} from "./Shimmer";
 import { Link } from "react-router-dom";
 
 function filterData(searchText, restaurants) {
@@ -37,7 +37,7 @@ const Body = () => {
   }
 
   return !originalRestaurants.length ? (
-    <Shimmer />
+    <ShimmerRestaurantCard />
   ) : (
     <>
       <div className="search-container">

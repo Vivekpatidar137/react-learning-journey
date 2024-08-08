@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "./config";
+import { ShimmerMenu } from "./Shimmer";
 import "./RestaurantMenu.css";
 
 const RestaurantMenu = () => {
   const { id } = useParams();
-
+  const [isLoading, setIsLoading] = useState(true);
   const [restaurantMenu, setRestaurantMenu] = useState({});
   const [menuItems, setMenuItems] = useState([]);
 
@@ -15,7 +16,7 @@ const RestaurantMenu = () => {
 
   async function getRestaurantInfo() {
     const data = await fetch(
-      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.3315103&lng=75.0366677&restaurantId=" +
+      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.3315103&lng=75.0366677&restaurantId=" +
         id
     );
 
@@ -25,13 +26,21 @@ const RestaurantMenu = () => {
       json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.card
         .carousel
     );
+    setIsLoading(false);
   }
 
-  return (
+  if (isLoading) {
+    return <ShimmerMenu />; // Show shimmer effect while loading
+  }
+
+  return  (
     <div className="restaurant-menu-container">
       <div className="restaurant-details">
         <h1>{restaurantMenu.name}</h1>
-        <img src={IMG_CDN_URL + restaurantMenu.cloudinaryImageId} alt="Restaurant" />
+        <img
+          src={IMG_CDN_URL + restaurantMenu.cloudinaryImageId}
+          alt="Restaurant"
+        />
         <h4>{restaurantMenu.costForTwoMessage}</h4>
         <h4>{restaurantMenu?.cuisines?.join(", ")}</h4>
         <h4>{restaurantMenu.avgRating} Stars</h4>

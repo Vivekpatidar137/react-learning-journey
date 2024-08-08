@@ -1,6 +1,6 @@
 import './ShimmerStyle.css'
 
-const Shimmer = () => {
+export const ShimmerRestaurantCard = () => {
     const arrays = Array.from({ length: 12 }).map((_, index) => {
         return (
             <div key={index} className="shimmer-wrapper">
@@ -18,4 +18,18 @@ const Shimmer = () => {
     );
 };
 
-export default Shimmer;
+
+ export const ShimmerMenu = () => {
+    return (
+      <div className="menu-shimmer-container">
+        <div className="menu-shimmer-wrapper menu-shimmer"></div>
+        <div className="menu-shimmer-wrapper menu-shimmer"></div>
+      </div>
+    );
+  };
+  
+
+  
+  
+
+
