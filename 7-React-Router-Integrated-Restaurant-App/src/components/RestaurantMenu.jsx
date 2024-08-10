@@ -21,10 +21,9 @@ const RestaurantMenu = () => {
     );
 
     const json = await data.json();
-    setRestaurantMenu(json.data.cards[2].card.card.info);
+    setRestaurantMenu(json?.data?.cards[2]?.card?.card?.info);
     setMenuItems(
-      json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.card
-        .carousel
+      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel
     );
     setIsLoading(false);
   }
@@ -41,18 +40,18 @@ const RestaurantMenu = () => {
           src={IMG_CDN_URL + restaurantMenu.cloudinaryImageId}
           alt="Restaurant"
         />
-        <h4>{restaurantMenu.costForTwoMessage}</h4>
+        <h4>{restaurantMenu?.costForTwoMessage}</h4>
         <h4>{restaurantMenu?.cuisines?.join(", ")}</h4>
-        <h4>{restaurantMenu.avgRating} Stars</h4>
-        <h4>{restaurantMenu.areaName}</h4>
-        <h4>{restaurantMenu.city}</h4>
+        <h4>{restaurantMenu?.avgRating} Stars</h4>
+        <h4>{restaurantMenu?.areaName}</h4>
+        <h4>{restaurantMenu?.city}</h4>
       </div>
 
       <div className="menu-items-carousel">
         <h2>Top Picks:</h2>
         <div className="carousel">
           {menuItems.map((item) => {
-            const itemInfo = item.dish.info;
+            const itemInfo = item?.dish?.info;
             return (
               <div className="carousel-item" key={itemInfo.id}>
                 <h3>{itemInfo.name}</h3>
