@@ -1,0 +1,37 @@
+/* Header.css */
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  /* Flexbox Navigation */
+  nav ul {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0;
+  }
+  
+  nav ul li {
+    margin: 0 15px; /* Space out the items */
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
