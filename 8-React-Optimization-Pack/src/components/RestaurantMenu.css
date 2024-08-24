@@ -1,0 +1,137 @@
+.restaurant-menu-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f7f7f7;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.restaurant-details {
+  width: 40%;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.restaurant-details h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.restaurant-details img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.restaurant-details h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.menu-items-carousel {
+  width: 55%;
+}
+
+.menu-items-carousel h2 {
+  margin-bottom: 20px;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.carousel-item {
+  min-width: 200px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.carousel-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.carousel-item h4 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.carousel-item p {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .restaurant-menu-container {
+    flex-direction: column;
+  }
+
+  .restaurant-details, .menu-items-carousel {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .restaurant-details h1 {
+    font-size: 1.8rem;
+  }
+
+  .carousel {
+    padding: 10px;
+  }
+
+  .carousel-item {
+    min-width: 150px;
+  }
+
+  .carousel-item h3 {
+    font-size: 1rem;
+  }
+
+  .carousel-item h4,
+  .carousel-item p {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .restaurant-details h1 {
+    font-size: 1.5rem;
+  }
+
+  .restaurant-details img {
+    margin-bottom: 10px;
+  }
+
+  .carousel-item {
+    min-width: 120px;
+  }
+
+  .carousel-item h3 {
+    font-size: 0.9rem;
+  }
+
+  .carousel-item h4,
+  .carousel-item p {
+    font-size: 0.8rem;
+  }
+}
