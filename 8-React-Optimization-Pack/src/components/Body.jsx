@@ -1,39 +1,23 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
 import { ShimmerRestaurantCard } from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
-
+import useRestaurant from "../utils/useRestaurants";
 const Body = () => {
-  const [originalRestaurants, setOriginalRestaurants] = useState([]);
-  const [restaurants, setRestaurants] = useState([]);
-  const [searchText, setSearchText] = useState("");
+  const {
+    originalRestaurants,
+    restaurants,
+    searchText,
+    setRestaurants,
+    setSearchText,
+  } = useRestaurant();
+  
+  const offline = useOnline();
 
-  useEffect(() => {
-    getRestaurant();
-  }, []);
-
-  async function getRestaurant() {
-    const data = await fetch(
-      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.3315103&lng=75.0366677&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-
-    const json = await data.json();
-
-    setRestaurants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setOriginalRestaurants(
-      json?.data?.cards[4]?.card?.card.gridElements?.infoWithStyle?.restaurants
-    );
+  if (!offline) {
+    return <h1>🔴 Please check your internet connection</h1>;
   }
-
-const offline = useOnline();
-
-if(!offline){
-  return <h1>🔴 Please check your internet connection</h1>
-}
 
   return !originalRestaurants.length ? (
     <ShimmerRestaurantCard />
