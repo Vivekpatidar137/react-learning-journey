@@ -17,7 +17,22 @@ const Body = () => {
   const offline = useOnline();
 
   if (!offline) {
-    return <h1 className="text-center text-red-500">🔴 Please check your internet connection</h1>;
+    return (
+      <div className="flex flex-col items-center justify-center h-screen bg-gray-100 p-4">
+        <h1 className="text-center text-red-600 font-bold text-2xl mb-2">
+          🔴 No Internet Connection
+        </h1>
+        <p className="text-center text-gray-700">
+          Please check your internet connection and try again.
+        </p>
+        <button
+          className="mt-4 px-6 py-2 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 transition-colors"
+          onClick={() => window.location.reload()}
+        >
+          Retry
+        </button>
+      </div>
+    );
   }
 
   return !originalRestaurants.length ? (
