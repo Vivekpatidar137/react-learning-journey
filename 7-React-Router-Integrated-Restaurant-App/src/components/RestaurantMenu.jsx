@@ -16,7 +16,7 @@ const RestaurantMenu = () => {
 
   async function getRestaurantInfo() {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.3315103&lng=75.0366677&restaurantId=" +
+      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.3315103&lng=75.0366677&restaurantId=" +
         id
     );
 
