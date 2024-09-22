@@ -2,7 +2,8 @@ import { IMG_CDN_URL } from "./config";
 
 const CategoryItems = ({ itemCards }) => {
   return (
-    <div className="mt-4 space-y-8"> {/* Increased spacing between items */}
+    <div className="mt-4 space-y-8">
+      {/* Increased spacing between items */}
       {itemCards.map((items) => {
         const item = items.card.info;
         return (
@@ -25,18 +26,27 @@ const CategoryItems = ({ itemCards }) => {
               <p className="text-md text-gray-600 mt-4">{item.description}</p>
             </div>
 
-            {/* Item image on the right side with ADD button */}
-            <div className="relative ml-6 w-40 h-40 flex-shrink-0">
-              <img
-                className="w-full h-full object-cover rounded-lg border-2 border-gray-300"
-                src={IMG_CDN_URL + item.imageId}
-                alt={item.name}
-              />
-              
-              {/* ADD button positioned on top of the image */}
-              <button className="absolute top-2 right-2 bg-green-600 text-white text-sm px-4 py-1 rounded-full shadow-md hover:bg-green-700">
-                ADD
-              </button>
+            {/* Item image on the right side */}
+            <div className="relative ml-6 w-40 h-40 flex-shrink-0 flex items-center justify-center">
+              {item.imageId ? (
+                <>
+                  {/* Display image if available */}
+                  <img
+                    className="w-full h-full object-cover rounded-lg border-2 border-gray-300"
+                    src={IMG_CDN_URL + item.imageId}
+                    alt={item.name}
+                  />
+                  {/* ADD button positioned on top of the image */}
+                  <button className="absolute top-2 right-2 bg-green-600 text-white text-sm px-4 py-1 rounded-full shadow-md hover:bg-green-700">
+                    ADD
+                  </button>
+                </>
+              ) : (
+                /* Centered ADD button if no image */
+                <button className="w-24 h-10 bg-green-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-green-700 flex items-center justify-center">
+                  ADD
+                </button>
+              )}
             </div>
           </div>
         );
