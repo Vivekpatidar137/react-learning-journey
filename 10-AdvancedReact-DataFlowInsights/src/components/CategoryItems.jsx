@@ -19,10 +19,12 @@ const CategoryItems = ({ itemCards }) => {
               <h2 className="text-lg text-gray-900 font-bold mt-2">
                 ₹{item.price / 100}
               </h2>
-              <h4 className="text-md text-green-600 font-medium mt-2">
-                {item.ratings.aggregatedRating.rating} ★ (
-                {item.ratings.aggregatedRating.ratingCountV2})
-              </h4>
+              {item.ratings.aggregatedRating.rating ? (
+                <h4 className="text-md text-green-600 font-medium mt-2">
+                  {item.ratings.aggregatedRating.rating} ★ (
+                  {item.ratings.aggregatedRating.ratingCountV2})
+                </h4>
+              ) : null}
               <p className="text-md text-gray-600 mt-4">{item.description}</p>
             </div>
 
