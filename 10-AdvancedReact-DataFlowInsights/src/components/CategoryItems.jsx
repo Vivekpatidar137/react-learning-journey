@@ -16,9 +16,15 @@ const CategoryItems = ({ itemCards }) => {
               <h2 className="text-xl font-semibold text-gray-800">
                 {item.name}
               </h2>
-              <h2 className="text-lg text-gray-900 font-bold mt-2">
-                ₹{item.price / 100}
-              </h2>
+              {item.price ? (
+                <h2 className="text-lg text-gray-900 font-bold mt-2">
+                  ₹{item.price / 100}
+                </h2>
+              ) : (
+                <h2 className="text-lg text-gray-900 font-bold mt-2">
+                  ₹{item.defaultPrice / 100}
+                </h2>
+              )}
               {item.ratings.aggregatedRating.rating ? (
                 <h4 className="text-md text-green-600 font-medium mt-2">
                   {item.ratings.aggregatedRating.rating} ★ (
