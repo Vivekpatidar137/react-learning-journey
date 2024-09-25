@@ -25,7 +25,9 @@ const CategoryItems = ({ itemCards }) => {
                   {item.ratings.aggregatedRating.ratingCountV2})
                 </h4>
               ) : null}
-              <p className="text-md text-gray-600 mt-4">{item.description}</p>
+              {item.description ? (
+                <p className="text-md text-gray-600 mt-4">{item.description}</p>
+              ) : null}
             </div>
 
             {/* Item image on the right side */}
