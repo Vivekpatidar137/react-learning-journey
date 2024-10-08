@@ -25,3 +25,20 @@ test("should render Contact component with headings and paragraphs", () => {
   expect(phone).toBeInTheDocument();
   expect(address).toBeInTheDocument();
 });
+
+test("should render all social media links", () => {
+  // Render the Contact component
+  render(<Contact />);
+
+  // Test if all social media links are rendered
+  const facebook = screen.getByRole("link", { name: /Facebook/i });
+  const twitter = screen.getByRole("link", { name: /Twitter/i });
+  const instagram = screen.getByRole("link", { name: /Instagram/i });
+  const linkedIn = screen.getByRole("link", { name: /LinkedIn/i });
+
+  // Assert that all links are in the document
+  expect(facebook).toBeInTheDocument();
+  expect(twitter).toBeInTheDocument();
+  expect(instagram).toBeInTheDocument();
+  expect(linkedIn).toBeInTheDocument();
+});
