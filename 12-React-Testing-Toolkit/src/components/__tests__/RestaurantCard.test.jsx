@@ -27,6 +27,14 @@ test("Should render the correct restaurant image", () => {
 
 test("Should display average rating and cost for two", () => {
   render(<RestaurantCard {...MOCK_DATA.info} />);
-  const ratingCostText = screen.getByText(`${MOCK_DATA.info.avgRatingString} star • ${MOCK_DATA.info.costForTwo}`);
+  const ratingCostText = screen.getByText(
+    `${MOCK_DATA.info.avgRatingString} star • ${MOCK_DATA.info.costForTwo}`
+  );
   expect(ratingCostText).toBeInTheDocument();
+});
+
+test("Should display cuisines correctly", () => {
+  render(<RestaurantCard {...MOCK_DATA.info} />);
+  const cuisinesText = screen.getByText(MOCK_DATA.info.cuisines.join(", "));
+  expect(cuisinesText).toBeInTheDocument();
 });
