@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import RestaurantCard from "../RestaurantCard";
+import RestaurantCard, { withVegLabel } from "../RestaurantCard";
 import MOCK_DATA from "../__mocks__/resCardMock.json";
 import "@testing-library/jest-dom";
 // Mock the IMG_CDN_URL value
@@ -37,4 +37,16 @@ test("Should display cuisines correctly", () => {
   render(<RestaurantCard {...MOCK_DATA.info} />);
   const cuisinesText = screen.getByText(MOCK_DATA.info.cuisines.join(", "));
   expect(cuisinesText).toBeInTheDocument();
+});
+
+
+// Mock the veg label image
+jest.mock("../myAssets/veg.png", () => "mocked-veg-label.png");
+
+test("Should render veg label for veg restaurants", () => {
+  const WrappedRestaurantCard = withVegLabel(RestaurantCard);
+  render(<WrappedRestaurantCard {...MOCK_DATA.info} />);
+  
+  const vegLabel = screen.getByAltText("veg label");
+  expect(vegLabel).toBeInTheDocument();
 });
