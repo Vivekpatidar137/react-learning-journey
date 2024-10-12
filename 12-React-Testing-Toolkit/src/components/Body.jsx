@@ -43,6 +43,7 @@ const Body = () => {
       <div className="flex justify-center py-4">
         <input
           type="text"
+          data-testid = "searchInput"
           className="border p-2 rounded-l-md"
           placeholder="search"
           value={searchText}

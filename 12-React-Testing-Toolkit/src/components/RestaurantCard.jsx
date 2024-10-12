@@ -9,7 +9,10 @@ const RestaurantCard = ({
   costForTwo,
 }) => {
   return (
-    <div className="w-72 border border-gray-300 rounded-lg m-4 bg-white shadow-lg transition-transform transform hover:translate-y-[-0.125rem] relative">
+    <div
+      data-testid="resCard"
+      className="w-72 border border-gray-300 rounded-lg m-4 bg-white shadow-lg transition-transform transform hover:translate-y-[-0.125rem] relative"
+    >
       <img
         src={IMG_CDN_URL + cloudinaryImageId}
         className="w-full h-52 object-cover rounded-t-lg"
@@ -28,8 +31,8 @@ const RestaurantCard = ({
 export const withVegLabel = (RestaurantCard) => {
   return (props) => {
     return (
-      <div className="relative"> 
-        <label className="absolute top-0 left-4 z-10"> 
+      <div className="relative">
+        <label className="absolute top-0 left-4 z-10">
           <img src={label} alt="veg label" className="size-7 bg-slate-50" />
         </label>
         <RestaurantCard {...props} />
@@ -37,6 +40,5 @@ export const withVegLabel = (RestaurantCard) => {
     );
   };
 };
-
 
 export default RestaurantCard;

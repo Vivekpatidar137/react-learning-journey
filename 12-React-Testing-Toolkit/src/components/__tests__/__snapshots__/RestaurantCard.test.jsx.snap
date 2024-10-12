@@ -4,6 +4,7 @@ exports[`Should match snapshot 1`] = `
 <div>
   <div
     class="w-72 border border-gray-300 rounded-lg m-4 bg-white shadow-lg transition-transform transform hover:translate-y-[-0.125rem] relative"
+    data-testid="resCard"
   >
     <img
       class="w-full h-52 object-cover rounded-t-lg"
