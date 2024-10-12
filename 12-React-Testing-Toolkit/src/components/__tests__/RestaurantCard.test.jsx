@@ -39,14 +39,18 @@ test("Should display cuisines correctly", () => {
   expect(cuisinesText).toBeInTheDocument();
 });
 
-
 // Mock the veg label image
 jest.mock("../myAssets/veg.png", () => "mocked-veg-label.png");
 
 test("Should render veg label for veg restaurants", () => {
   const WrappedRestaurantCard = withVegLabel(RestaurantCard);
   render(<WrappedRestaurantCard {...MOCK_DATA.info} />);
-  
+
   const vegLabel = screen.getByAltText("veg label");
   expect(vegLabel).toBeInTheDocument();
+});
+
+test("Should match snapshot", () => {
+  const { container } = render(<RestaurantCard {...MOCK_DATA.info} />);
+  expect(container).toMatchSnapshot();
 });
