@@ -61,4 +61,33 @@ test("Should render veg label only for veg restaurants", async () => {
   expect(vegLabel.length).toBe(6);
 });
 
+test("Should update restaurant list when performing multiple searches", async () => {
+  await act(async () =>
+    render(
+      <BrowserRouter>
+        <Body />
+      </BrowserRouter>
+    )
+  );
+  const cardsBeforeSearch = screen.getAllByTestId("resCard");
+  expect(cardsBeforeSearch.length).toBe(8);
 
+  const searchInput = screen.getByTestId("searchInput");
+  const searchBtn = screen.getByRole("button", { name: "Search" });
+
+  // Search for "The Baker's Heart"
+  fireEvent.change(searchInput, { target: { value: "The Baker's Heart" } });
+  fireEvent.click(searchBtn);
+
+  let cardsAfterSearch = screen.getAllByTestId("resCard");
+  expect(cardsAfterSearch.length).toBe(1);
+
+  // Now search for "Jalsara Hotel And Restaurant"
+  fireEvent.change(searchInput, {
+    target: { value: "Jalsara Hotel And Restaurant" },
+  });
+  fireEvent.click(searchBtn);
+
+  let cardsAfterSecondSearch = screen.getAllByTestId("resCard");
+  expect(cardsAfterSecondSearch.length).toBe(1);
+});
