@@ -47,3 +47,18 @@ test("Should render body component and handle search functionality", async () =>
   const cardsAfterSearch = screen.getAllByTestId("resCard");
   expect(cardsAfterSearch.length).toBe(1);
 });
+
+test("Should render veg label only for veg restaurants", async () => {
+  await act(async () =>
+    render(
+      <BrowserRouter>
+        <Body />
+      </BrowserRouter>
+    )
+  );
+
+  const vegLabel = screen.getAllByAltText("veg label");
+  expect(vegLabel.length).toBe(6);
+});
+
+
