@@ -15,6 +15,7 @@ const CategoryItems = ({ itemCards }) => {
         const item = items?.card?.info;
         return (
           <div
+            data-testid = "categoryItems"
             className="flex justify-between items-start p-6 bg-slate-100 rounded-lg shadow-lg"
             key={item.id}
           >
