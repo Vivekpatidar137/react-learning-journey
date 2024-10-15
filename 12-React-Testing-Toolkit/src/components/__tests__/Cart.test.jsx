@@ -6,6 +6,10 @@ import { Provider } from "react-redux";
 import appStore from "../../utils/appStore";
 import "@testing-library/jest-dom";
 import Cart from "../Cart";
+import { BrowserRouter } from "react-router-dom";
+import Header from "../Header";
+import { configureStore } from "@reduxjs/toolkit";
+import cartReducer from "../../utils/cartSlice"; // Import your cart slic
 
 // Mock fetch to return the menu data
 global.fetch = jest.fn(() =>
@@ -13,6 +17,19 @@ global.fetch = jest.fn(() =>
     json: () => Promise.resolve(MOCK_MENU_DATA),
   })
 );
+
+// Create a mock store using Redux Toolkit's configureStore
+const store = configureStore({
+  reducer: {
+    cart: cartReducer, // Pass your cart reducer
+  },
+  preloadedState: {
+    cart: {
+      items: [], // Mock initial state with no items in cart
+    },
+  },
+});
+
 
 describe("RestaurantMenu Integration Tests", () => {
   // Test to verify if the RestaurantMenu component renders correctly
@@ -75,5 +92,34 @@ describe("RestaurantMenu Integration Tests", () => {
     // Verify that items have been added to the cart
     const categoryItemsAfterAdd = screen.getAllByTestId("categoryItems");
     expect(categoryItemsAfterAdd.length).toBe(4); // Expecting an additional item in the cart
+  });
+
+  test("should display cart item count correctly", async () => {
+    await act(async () =>
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <Header />
+            <RestaurantMenu />
+          </Provider>
+        </BrowserRouter>
+      )
+    );
+
+    // Check for initial cart count
+    const beforeAddingItem = screen.getByTestId("cart-item-count");
+    expect(beforeAddingItem.textContent).toBe("0"); // If items array is empty
+
+    const categoryHeader = screen.getByText("Starters (Chinese) (3)");
+    expect(categoryHeader).toBeInTheDocument();
+
+    const addToCartButtons = screen.getAllByRole("button", { name: "ADD" });
+    fireEvent.click(addToCartButtons[0]);
+
+    const afterAddingItem = screen.getByTestId("cart-item-count");
+    expect(afterAddingItem.textContent).toBe("1");
+
+    fireEvent.click(addToCartButtons[1]);
+    expect(afterAddingItem.textContent).toBe("2");
   });
 });

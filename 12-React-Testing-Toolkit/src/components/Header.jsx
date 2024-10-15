@@ -72,7 +72,13 @@ const Header = () => {
                   d="M3 3h2l.4 2m0 0h13.2l.4-2M5.4 5l1.5 9h10.2l1.5-9M9 13h6m-9 4h12a1 1 0 001-1v-7a1 1 0 00-1-1H6a1 1 0 00-1 1v7a1 1 0 001 1z"
                 />
               </svg>
-              <span>{cartItems.length}</span>
+              <div data-testid="cart-item-count">
+                {cartItems.length > 0 ? (
+                  <span>{cartItems.length}</span>
+                ) : (
+                  0
+                )}
+              </div>
             </Link>
             {cartItems.length > 0 && (
               <div className="absolute top-0 right-0 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
