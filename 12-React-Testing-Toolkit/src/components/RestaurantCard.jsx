@@ -17,13 +17,17 @@ const RestaurantCard = ({
         src={IMG_CDN_URL + cloudinaryImageId}
         className="w-full h-52 object-cover rounded-t-lg"
       />
-      <h2 className="text-lg font-semibold px-4 py-2">{name}</h2>
-      <h3 className="text-sm text-gray-600 px-4">
-        {avgRatingString} star • {costForTwo}
-      </h3>
-      <h4 className="text-sm text-gray-500 px-4 pb-4">
-        {cuisines?.join(", ")}
-      </h4>
+      <div className="p-4">
+        <h2 className="text-lg font-semibold">{name}</h2>
+        <h3 className="text-sm text-gray-600">
+          {avgRatingString} star • {costForTwo}
+        </h3>
+        <div className="text-sm text-gray-500 overflow-hidden h-10">
+          {" "}
+          {/* Fixed height */}
+          {cuisines?.join(", ")}
+        </div>
+      </div>
     </div>
   );
 };
