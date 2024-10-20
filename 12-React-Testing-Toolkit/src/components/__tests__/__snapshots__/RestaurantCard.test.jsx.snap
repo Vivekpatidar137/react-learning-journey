@@ -10,23 +10,28 @@ exports[`Should match snapshot 1`] = `
       class="w-full h-52 object-cover rounded-t-lg"
       src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/6af9332845d39b846914eb581f94fa76"
     />
-    <h2
-      class="text-lg font-semibold px-4 py-2"
+    <div
+      class="p-4"
     >
-      Ratlami Teekha
-    </h2>
-    <h3
-      class="text-sm text-gray-600 px-4"
-    >
-      4.0
-       star • 
-      ₹199 for two
-    </h3>
-    <h4
-      class="text-sm text-gray-500 px-4 pb-4"
-    >
-      Snacks
-    </h4>
+      <h2
+        class="text-lg font-semibold"
+      >
+        Ratlami Teekha
+      </h2>
+      <h3
+        class="text-sm text-gray-600"
+      >
+        4.0
+         star • 
+        ₹199 for two
+      </h3>
+      <div
+        class="text-sm text-gray-500 overflow-hidden h-10"
+      >
+         
+        Snacks
+      </div>
+    </div>
   </div>
 </div>
 `;
