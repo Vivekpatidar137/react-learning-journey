@@ -1,6 +1,5 @@
-//import logo from "/src/myAssets/Designer.png";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
@@ -23,40 +22,66 @@ const Title = () => {
 const Header = () => {
   const { loggedInUser } = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-gray-900 shadow-lg">
+    <header className="bg-gray-900 shadow-lg relative z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Title />
-        <nav className="flex items-center space-x-6 text-white">
+        {/* Mobile Menu Button */}
+        <button
+          className="text-white md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+        {/* Navigation */}
+        <nav
+          className={`${
+            isMenuOpen ? "block" : "hidden"
+          } md:flex md:items-center md:space-x-6 text-white absolute md:static top-16 left-0 w-full md:w-auto bg-gray-900 md:bg-transparent z-50`}
+        >
           <Link
-            className="hover:text-yellow-400 transition-colors duration-200"
+            className="block text-center md:inline-block hover:text-yellow-400 transition-colors duration-200 px-4 py-2 md:p-0"
             to="/"
           >
             Home
           </Link>
           <Link
-            className="hover:text-yellow-400 transition-colors duration-200"
+            className="block text-center md:inline-block hover:text-yellow-400 transition-colors duration-200 px-4 py-2 md:p-0"
             to="/about"
           >
             About
           </Link>
           <Link
-            className="hover:text-yellow-400 transition-colors duration-200"
+            className="block text-center md:inline-block hover:text-yellow-400 transition-colors duration-200 px-4 py-2 md:p-0"
             to="/contact"
           >
             Contact
           </Link>
           <Link
-            className="hover:text-yellow-400 transition-colors duration-200"
+            className="block text-center md:inline-block hover:text-yellow-400 transition-colors duration-200 px-4 py-2 md:p-0"
             to="/expressMart"
           >
             ExpressMart
           </Link>
-          <div className="relative">
+          <div className="relative block text-center md:inline-block">
             <Link
               to="/cart"
-              className="flex items-center text-yellow-400 font-bold hover:text-yellow-500 transition-all duration-200"
+              className="flex justify-center items-center text-yellow-400 font-bold hover:text-yellow-500 transition-all duration-200 px-4 py-2 md:p-0"
             >
               <svg
                 className="w-6 h-6 mr-1"
@@ -73,11 +98,7 @@ const Header = () => {
                 />
               </svg>
               <div data-testid="cart-item-count">
-                {cartItems.length > 0 ? (
-                  <span>{cartItems.length}</span>
-                ) : (
-                  0
-                )}
+                {cartItems.length > 0 ? <span>{cartItems.length}</span> : 0}
               </div>
             </Link>
             {cartItems.length > 0 && (
@@ -86,7 +107,7 @@ const Header = () => {
               </div>
             )}
           </div>
-          <span className="font-bold text-sm text-green-400">
+          <span className="block text-center md:inline-block font-bold text-sm text-green-400 px-4 py-2 md:p-0">
             {loggedInUser ? `Hi, ${loggedInUser}` : "Guest"}
           </span>
         </nav>
