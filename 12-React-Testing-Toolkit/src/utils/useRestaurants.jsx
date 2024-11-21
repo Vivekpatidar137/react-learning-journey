@@ -11,7 +11,7 @@ const useRestaurants = () => {
 
   async function getRestaurant() {
     const data = await fetch(
-      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.3315103&lng=75.0366677&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=19.0759837&lng=72.8776559&carousel=true&third_party_vendor=1"
     );
 
     const json = await data.json();
@@ -19,11 +19,10 @@ const useRestaurants = () => {
     setRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    
+
     setOriginalRestaurants(
       json?.data?.cards[4]?.card?.card.gridElements?.infoWithStyle?.restaurants
     );
-   
   }
 
   return {
@@ -31,8 +30,8 @@ const useRestaurants = () => {
     restaurants,
     searchText,
     setSearchText,
-    setRestaurants
-  }
-}
+    setRestaurants,
+  };
+};
 
 export default useRestaurants;
