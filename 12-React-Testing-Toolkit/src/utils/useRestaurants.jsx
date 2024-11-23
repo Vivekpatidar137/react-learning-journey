@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 const useRestaurants = () => {
   const [originalRestaurants, setOriginalRestaurants] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
+  const [carouselItems, setCarouselItems] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -15,6 +16,10 @@ const useRestaurants = () => {
     );
 
     const json = await data.json();
+
+    setCarouselItems(json.data.cards[0].card.card);
+
+    console.log(json.data.cards[0].card.card);
 
     setRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -29,6 +34,7 @@ const useRestaurants = () => {
     originalRestaurants,
     restaurants,
     searchText,
+    carouselItems,
     setSearchText,
     setRestaurants,
   };

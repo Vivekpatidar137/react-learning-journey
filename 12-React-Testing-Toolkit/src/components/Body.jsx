@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import useRestaurant from "../utils/useRestaurants";
+import DishesCarousel from "./RestaurantsCarousel";
+
 
 const Body = () => {
   const {
     originalRestaurants,
     restaurants,
     searchText,
+    carouselItems,
     setRestaurants,
     setSearchText,
   } = useRestaurant();
@@ -60,6 +63,10 @@ const Body = () => {
         >
           Search
         </button>
+      </div>
+
+      <div>
+        <DishesCarousel  {...carouselItems}/>
       </div>
 
       <div className="flex flex-wrap justify-center p-5">
