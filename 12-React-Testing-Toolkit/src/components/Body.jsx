@@ -6,9 +6,9 @@ import useOnline from "../utils/useOnline";
 import useRestaurant from "../utils/useRestaurants";
 import DishesCarousel from "./RestaurantsCarousel";
 
-
 const Body = () => {
   const {
+    headerTitle,
     originalRestaurants,
     restaurants,
     searchText,
@@ -46,7 +46,7 @@ const Body = () => {
       <div className="flex justify-center py-4">
         <input
           type="text"
-          data-testid = "searchInput"
+          data-testid="searchInput"
           className="border p-2 rounded-l-md"
           placeholder="search"
           value={searchText}
@@ -66,7 +66,11 @@ const Body = () => {
       </div>
 
       <div>
-        <DishesCarousel  {...carouselItems}/>
+        <DishesCarousel {...carouselItems} />
+      </div>
+
+      <div className="ml-20 pt-20">
+        <h1 className="text-2xl font-bold">{headerTitle}</h1>
       </div>
 
       <div className="flex flex-wrap justify-center p-5">

@@ -4,6 +4,7 @@ const useRestaurants = () => {
   const [originalRestaurants, setOriginalRestaurants] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const [carouselItems, setCarouselItems] = useState([]);
+  const [headerTitle, setHeaderTitle] = useState("");
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -16,21 +17,19 @@ const useRestaurants = () => {
     );
 
     const json = await data.json();
+    setCarouselItems(json?.data?.cards[0]?.card?.card || []);
 
-    setCarouselItems(json.data.cards[0].card.card);
+    setHeaderTitle(json?.data?.cards[1]?.card?.card?.header?.title || "");
+    const restaurantsData =
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
 
-    console.log(json.data.cards[0].card.card);
-
-    setRestaurants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-
-    setOriginalRestaurants(
-      json?.data?.cards[4]?.card?.card.gridElements?.infoWithStyle?.restaurants
-    );
+    setRestaurants(restaurantsData || []);
+    setOriginalRestaurants(restaurantsData || []);
   }
 
   return {
+    headerTitle,
     originalRestaurants,
     restaurants,
     searchText,
