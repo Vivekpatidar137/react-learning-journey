@@ -69,11 +69,11 @@ const Body = () => {
         <DishesCarousel {...carouselItems} />
       </div>
 
-      <div className="ml-20 pt-20">
-        <h1 className="text-2xl font-bold">{headerTitle}</h1>
+      <div className="max-w-screen-xl mx-auto pt-10 px-4 sm:px-6">
+        <h1 className="text-xl sm:text-2xl font-bold">{headerTitle}</h1>
       </div>
 
-      <div className="flex flex-wrap justify-center p-5">
+      <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 px-4 sm:px-6 place-items-center">
         {restaurants.map((restaurant) => {
           return (
             <Link
