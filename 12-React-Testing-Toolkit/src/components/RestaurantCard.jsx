@@ -11,38 +11,47 @@ const RestaurantCard = ({
   return (
     <div
       data-testid="resCard"
-      className="w-72 border border-gray-300 rounded-lg m-4 bg-white shadow-lg transition-transform transform hover:translate-y-[-0.125rem] relative"
+      className="w-72 border border-gray-200 rounded-lg bg-white shadow-md transition-transform transform hover:scale-105 hover:shadow-lg m-4"
     >
+      {/* Image Section */}
       <img
         src={IMG_CDN_URL + cloudinaryImageId}
-        className="w-full h-52 object-cover rounded-t-lg"
+        alt={name}
+        className="w-full h-48 object-cover rounded-t-lg"
       />
-      <div className="p-4">
-        <h2 className="text-lg font-semibold">{name}</h2>
-        <h3 className="text-sm text-gray-600">
-          {avgRatingString} star • {costForTwo}
-        </h3>
-        <div className="text-sm text-gray-500 overflow-hidden h-10">
-          {" "}
-          {/* Fixed height */}
-          {cuisines?.join(", ")}
+
+      {/* Content Section */}
+      <div className="p-5">
+        <h2 className="text-lg font-semibold truncate">{name}</h2>
+        <div className="flex items-center justify-between mt-2">
+          {/* Rating Section */}
+          <span className="flex items-center bg-green-600 text-white text-sm font-medium px-2 py-1 rounded">
+            ⭐ {avgRatingString}
+          </span>
+          <span className="text-sm text-gray-600">{costForTwo}</span>
         </div>
+        <p className="text-sm text-gray-500 mt-3 leading-tight truncate">
+          {cuisines?.join(", ")}
+        </p>
       </div>
     </div>
   );
 };
 
 export const withVegLabel = (RestaurantCard) => {
-  return (props) => {
-    return (
-      <div className="relative">
-        <label className="absolute top-0 left-4 z-10">
-          <img src={label} alt="veg label" className="size-7 bg-slate-50" />
-        </label>
-        <RestaurantCard {...props} />
-      </div>
-    );
-  };
+  return (props) => (
+    <div className="relative">
+      {/* Veg Label */}
+      <label className="absolute top-3 left-3 z-10">
+        <img
+          src={label}
+          alt="veg label"
+          className="w-7 h-7 bg-white p-1 rounded-full shadow-sm"
+        />
+      </label>
+      <RestaurantCard {...props} />
+    </div>
+  );
 };
 
 export default RestaurantCard;
